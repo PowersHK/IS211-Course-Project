@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="static/styles.css">
+    <meta charset="UTF-8">
+
+    <title>Blog Dashboard</title>
+
+    <style>
+        table, th, td {
+          border: 1px solid black;
+          border-collapse: collapse;
+        }
+        td {text-align:right;}
+    </style>
+</head>
+
+<body>
+<h1>Blog Posts</h1>
+<table>
+<tr>
+    <th>Title:</th>
+    <th>View</th>
+    <th>Edit</th>
+    <th>Delete</th>
+    <th>Unpublish</th>
+    <th>Publish</th>
+    <th>Status</th>
+</tr>
+{% for posts in blogs %}
+<tr>
+    <td>{{posts[0]}}</td>
+    <td><button onclick="document.location='/{{posts[4]}}'">View</button></td>
+    <td><button onclick="document.location='edit/{{posts[4]}}'">Edit</button></td>
+    <td><button onclick="document.location='delete/{{posts[4]}}'">Delete</button></td>
+
+    <td><button onclick="document.location='unpublish/{{posts[4]}}'">Unpublish</button></td>
+    <td><button onclick="document.location='publish/{{posts[4]}}'">publish</button></td>
+    {% if  posts[5] %}
+    <td>Published</td>
+    {% endif %}
+    {% if not posts[5] %}
+    <td>Unpublished</td>
+    {% endif %}
+
+</tr>
+    </br>
+{% endfor %}
+</table>
+
+<h2>Blog Creation</h2>
+<button onclick="document.location='create_blog'">Add a Blog Entry</button>
+</br>
+</body>
+</html>
