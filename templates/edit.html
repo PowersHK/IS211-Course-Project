@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/styles.css">
+    <title>Edit Blog Post</title>
+
+    <style>
+        table, th, td {
+          border: 1px solid black;
+          border-collapse: collapse;
+        }
+        td {text-align:right;}
+    </style>
+</head>
+<body>
+<H1>Edit a Blog Entry</H1>
+
+<form action="/update"  method="post" id="blogform">
+    Title: <input type = "text" name="title" value ="{{ post[0] }} required">
+    <br>
+    <br>
+    <textarea rows="20" cols="60" name="content" form="blogform" required>{{ post[2] }}</textarea>
+    <br>
+    <input type="hidden" name="postID" value="{{ post[4] }}">
+    <input type="submit">
+
+</form>
+<br>
+
+</body>
+</html>
