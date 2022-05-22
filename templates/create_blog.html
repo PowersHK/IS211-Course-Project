@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../static/styles.css">
+    <meta charset="UTF-8">
+    <title>Create Blog Post</title>
+
+    <style>
+        table, th, td {
+          border: 1px solid black;
+          border-collapse: collapse;
+        }
+        td {text-align:right;}
+    </style>
+</head>
+<body>
+<h1>Create a Blog Entry</h1>
+
+<form action="/add"  method="post" id="blogform">
+    Title: <input type = "text" name="title" required>
+
+    <br>
+    <br>
+    <textarea rows="20" cols="60" name="content" form="blogform" required placeholder="Enter blog contents here"></textarea>
+
+    <br>
+    <input type="submit">
+</form>
+<br>
+
+</body>
+</html>
